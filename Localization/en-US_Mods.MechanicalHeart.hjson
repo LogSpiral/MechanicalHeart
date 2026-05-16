@@ -1,0 +1,32 @@
+Items: {
+	MechanicalHeartItem: {
+		DisplayName: Mechanical Heart Item
+		Tooltip: ""
+	}
+}
+
+Configs: {
+	MHConfig: {
+		DisplayName: MechanicalHeartConfig
+
+		UseFreeMode: {
+			Label: Use Free Mode
+			Tooltip: ""
+		}
+
+		Parameter: {
+			Label: Parameter
+			Tooltip: ""
+		}
+
+		CustomPos: {
+			Label: Custom Pos
+			Tooltip: ""
+		}
+
+		ShowList: {
+			Label: Show List
+			Tooltip: ""
+		}
+	}
+}

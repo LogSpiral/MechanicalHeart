@@ -1,0 +1,32 @@
+Items: {
+	MechanicalHeartItem: {
+		DisplayName: 机械之心
+		Tooltip: 用机械力量进一步拓展饰品槽...
+	}
+}
+
+Configs: {
+	MHConfig: {
+		DisplayName: 机械心机制设置
+
+		UseFreeMode: {
+			Label: 是否启用自由配置模式
+			Tooltip: 如果启用，参数即是最大饰品数，否则最大饰品数为击败boss数/参数
+		}
+
+		Parameter: {
+			Label: 参数
+			Tooltip: ""
+		}
+
+		CustomPos: {
+			Label: 采用模组自设位置
+			Tooltip: 之前是默认采用自设来和其它拓展饰品位置区分，现在另外整了贴图就可以把这个作为可选了
+		}
+
+		ShowList: {
+			Label: 显示被击败的boss个数及列表
+			Tooltip: 会以内部名称的形式呈现，不过大伙应该都知道哪个是哪个吧(?)
+		}
+	}
+}

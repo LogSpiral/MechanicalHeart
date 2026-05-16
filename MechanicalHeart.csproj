@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<!-- Import tModLoader mod properties -->
+	<Import Project="..\tModLoader.targets" />
+
+	<!-- General -->
+	<PropertyGroup>
+		
+	</PropertyGroup>
+
+	<!-- References -->
+	<ItemGroup>
+	  <None Remove="Localization\zh-Hans_Mods.MechanicalHeart.hjson" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Reference Include="NetSimplified">
+	    <HintPath>lib\NetSimplified.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
+</Project>

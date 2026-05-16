@@ -1,0 +1,4 @@
+displayName = 机械之心
+author = 错数螺线LogSpiral
+dllReferences = NetSimplified
+version = 0.1.2
