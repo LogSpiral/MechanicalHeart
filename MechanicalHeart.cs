@@ -10,6 +10,7 @@ using System.Reflection;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Config;
@@ -25,6 +26,9 @@ public class MechanicalHeart : Mod
         NetModuleLoader.LoadAutoSyncsFrom(typeof(NetModuleLoader).Assembly);
         NetModuleLoader.LoadAutoSyncsFrom(Assembly.GetExecutingAssembly());
         NetModuleLoader.LoadNetModules();
+
+        for (int n = 0; n < 10; n++)
+            AddContent(new MechanicalAccSlot(n));
     }
     public override object Call(params object[] args)
     {
@@ -53,6 +57,7 @@ public class MechanicalHeartItem : ModItem
     {
         get
         {
+            return 10;
             var config = ModContent.GetInstance<MHConfig>();
             if (config.UseFreeMode)
                 return config.Parameter;
@@ -203,9 +208,10 @@ public class MHGlobalNPC : GlobalNPC
     }
 
 }
-public abstract class MechanicalAccSlotBase : ModAccessorySlot
+public class MechanicalAccSlot(int index) : ModAccessorySlot
 {
-    protected abstract int Index { get; }
+    public override string Name => $"{base.Name}_{Index}";
+    public int Index { get; } = index;
     public override Vector2? CustomLocation => ModContent.GetInstance<MHConfig>().CustomPos ? new Vector2((1 - Index / 5) * 160, Index % 5 * 50) + Main.ScreenSize.ToVector2() * new Vector2(0.75f - 0.25f * (Main.UIScale - 1), .5f) : null;
     public override string FunctionalBackgroundTexture => "MechanicalHeart/Inventory_BackMH";
     public override bool CanAcceptItem(Item checkItem, AccessorySlotType context)
@@ -220,44 +226,4 @@ public abstract class MechanicalAccSlotBase : ModAccessorySlot
         count = Math.Min(count, MechanicalHeartItem.HeartMax);
         return count < (Index + 1);
     }
-}
-public class MHAccS1 : MechanicalAccSlotBase
-{
-    protected override int Index => 0;
-}
-public class MHAccS2 : MechanicalAccSlotBase
-{
-    protected override int Index => 1;
-}
-public class MHAccS3 : MechanicalAccSlotBase
-{
-    protected override int Index => 2;
-}
-public class MHAccS4 : MechanicalAccSlotBase
-{
-    protected override int Index => 3;
-}
-public class MHAccS5 : MechanicalAccSlotBase
-{
-    protected override int Index => 4;
-}
-public class MHAccS6 : MechanicalAccSlotBase
-{
-    protected override int Index => 5;
-}
-public class MHAccS7 : MechanicalAccSlotBase
-{
-    protected override int Index => 6;
-}
-public class MHAccS8 : MechanicalAccSlotBase
-{
-    protected override int Index => 7;
-}
-public class MHAccS9 : MechanicalAccSlotBase
-{
-    protected override int Index => 8;
-}
-public class MHAccS10 : MechanicalAccSlotBase
-{
-    protected override int Index => 9;
 }
